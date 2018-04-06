@@ -23,12 +23,18 @@ $(document).ready(function() {
     $("#sum").text(userSum);
   }
 
+  function gemClick(gemValue) {
+    userSum += gemValue;
+    $("#sum").text(userSum);
+    checkStatus();
+  }
+
   function checkStatus() {
     if (userSum === goalNum) {
       wins++;
       alert("Congratulations you've won!");
       resetRound();
-      $("#wins").text("Wins : " + wins);
+      $("#wins").text("Wins : " + wins);     
     } else if (userSum > goalNum) {
       losses++;
       alert("Better luck next time!")
@@ -36,11 +42,7 @@ $(document).ready(function() {
       $("#losses").text("losses : " + losses);
     }
   }
-  function gemClick(gemValue) {
-    userSum += gemValue;
-    $("#sum").text(userSum);
-    checkStatus();
-  }
+  
   //click events
   resetRound();
   $("#goal").text("Goal Number : " + goalNum);
